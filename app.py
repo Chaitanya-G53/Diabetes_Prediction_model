@@ -5,7 +5,7 @@ import pandas as pd
 import streamlit as st
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(APP_DIR, "model.pkl")
+MODEL_PATH = os.path.join(APP_DIR, "model_db1.pkl")
 
 # --------------------------------------------------------------------------------
 # PAGE CONFIG
@@ -257,7 +257,7 @@ def gauge_svg(pct, size=190, color="#ff6b6b", track="rgba(255,255,255,0.08)"):
 @st.cache_resource
 def load_model(path=MODEL_PATH):
     if not os.path.exists(path):
-        st.error(f"❌ Could not find `model.pkl` at:\n\n`{path}`\n\nMake sure it's committed to the repo.")
+        st.error(f"❌ Could not find `model_db1.pkl` at:\n\n`{path}`\n\nMake sure it's committed to the repo.")
         st.stop()
     with open(path, "rb") as f:
         return pickle.load(f)
